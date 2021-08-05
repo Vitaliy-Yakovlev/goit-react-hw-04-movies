@@ -14,6 +14,7 @@ function MoviesList({ movies }) {
         <li key={movie.id} className={s.list}>
           <div className={s.container}>
             <Link
+              className={s.link}
               to={{
                 pathname: `/movies/${movie.id}`,
                 state: { from: location },

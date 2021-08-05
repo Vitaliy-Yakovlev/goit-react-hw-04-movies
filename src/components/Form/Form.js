@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -16,7 +17,7 @@ function Form({ onSubmit }) {
     event.preventDefault();
 
     if (searchQuery.trim() === '') {
-      alert('error');
+      toast.error('Не верный запрос');
       return;
     }
     onSubmit(searchQuery);

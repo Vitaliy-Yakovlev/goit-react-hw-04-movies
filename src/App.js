@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar';
@@ -24,6 +25,7 @@ const App = () => {
     <Container>
       <AppBar />
       <Suspense fallback={<Loader />}>
+        <ToastContainer autoClose={3000} />
         <Switch>
           <Route path="/" exact>
             <HomePage />
