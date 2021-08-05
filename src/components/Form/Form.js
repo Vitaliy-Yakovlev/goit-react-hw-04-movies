@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import s from './From.module.css';
@@ -42,5 +43,9 @@ function Form({ onSubmit }) {
     </header>
   );
 }
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default Form;

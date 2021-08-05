@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import s from './MovieReviews.module.css';
 
 function MovieReviews({ page }) {
-  console.log('MovieReviews', page.results.length);
   if (page.results.length === 0) {
     return <p className={s.error}>We don't have any reviews for this page.</p>;
   }
@@ -20,5 +20,9 @@ function MovieReviews({ page }) {
     </ul>
   );
 }
+
+MovieReviews.propTypes = {
+  page: PropTypes.object.isRequired,
+};
 
 export default MovieReviews;

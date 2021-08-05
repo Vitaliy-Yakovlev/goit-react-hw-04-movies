@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import ButtonGoBack from '../ButtonGoBack';
+import moviesDefault from '../../images/moviesDefault.jpg';
 import s from './MovieListId.module.css';
 
 function MovieListId({ movie, IMG_URL }) {
@@ -11,7 +13,9 @@ function MovieListId({ movie, IMG_URL }) {
       <div className={s.container}>
         <img
           className={s.images}
-          src={`${IMG_URL}${movie.poster_path}`}
+          src={
+            movie.poster_path ? `${IMG_URL}${movie.poster_path}` : moviesDefault
+          }
           alt={movie.title}
           width={400}
         />
@@ -38,5 +42,10 @@ function MovieListId({ movie, IMG_URL }) {
     </>
   );
 }
+
+MovieListId.propTypes = {
+  movie: PropTypes.object.isRequired,
+  IMG_URL: PropTypes.string.isRequired,
+};
 
 export default MovieListId;

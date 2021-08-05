@@ -10,7 +10,7 @@ import NavLinkListId from '../components/NavLinkListId';
 
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 
-export default function MoviesPage({ query }) {
+export default function MoviesPage() {
   const { url } = useRouteMatch();
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);

@@ -1,7 +1,6 @@
-// import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import moviesDefault from '../../images/moviesDefault.jpg';
-// import * as movieShelfAPI from '../../services/movieshelf-api';
 import s from './MoviesList.module.css';
 
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
@@ -43,5 +42,9 @@ function MoviesList({ movies }) {
     </ul>
   );
 }
+
+MoviesList.propTypes = {
+  movie: PropTypes.object.isRequired,
+};
 
 export default MoviesList;

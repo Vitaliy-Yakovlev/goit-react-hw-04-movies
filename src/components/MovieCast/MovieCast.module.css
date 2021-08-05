@@ -1,3 +1,11 @@
+.error {
+  text-align: center;
+  color: #ff0000;
+  font-size: 20px;
+  line-height: 1.67;
+  font-weight: 700;
+}
+
 .title {
   display: grid;
   max-width: calc(100vw - 40px);

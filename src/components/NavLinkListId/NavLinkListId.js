@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { NavLink, useLocation } from 'react-router-dom';
 import s from './NavLinkListId.module.css';
 
@@ -33,5 +34,9 @@ function NavLinkListId({ routeMatch }) {
     </div>
   );
 }
+
+NavLinkListId.propTypes = {
+  routeMatch: PropTypes.string.isRequired,
+};
 
 export default NavLinkListId;
