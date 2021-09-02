@@ -9,33 +9,47 @@ async function fetchWithErrorHandling(url = '', config = {}) {
 }
 
 //Список самых популярных фильмов на сегодня для создания коллекции на главной странице
-export function fetchMovies() {
+export function fetchMovies(CurrentPage) {
   return fetchWithErrorHandling(
-    `${BASE_URL}/3/trending/all/day?api_key=${KEY_BASE}`,
+    `${BASE_URL}/3/trending/all/week?api_key=${KEY_BASE}&page=${CurrentPage}`,
   );
 }
 
 //Поиск кинофильма по ключевому слову на странице фильмов.
-export function fetchMovieKeywordById(searchQuery) {
+export function fetchMovieKeywordById(searchQuery, CurrentPage) {
   return fetchWithErrorHandling(
-    `${BASE_URL}/3/search/movie?api_key=${KEY_BASE}&language=en-US&query=${searchQuery}&page=1&include_adult=false`,
+    `${BASE_URL}/3/search/movie?api_key=${KEY_BASE}&language=ru-RU&query=${searchQuery}&page=${CurrentPage}&include_adult=false`,
   );
 }
 
 // Запрос полной информации о фильме для страницы кинофильма по ID
 export function fetchMovieById(movieId) {
   return fetchWithErrorHandling(`
-${BASE_URL}/3/movie/${movieId}?api_key=${KEY_BASE}&language=en-US`);
+${BASE_URL}/3/movie/${movieId}?api_key=${KEY_BASE}&language=ru-RU`);
 }
 
 // Запрос информации о актёрском составе для страницы кинофильма.
 export function fetchMovieActorById(actorId) {
   return fetchWithErrorHandling(`
-${BASE_URL}/3/movie/${actorId}/credits?api_key=${KEY_BASE}&language=en-US`);
+${BASE_URL}/3/movie/${actorId}/credits?api_key=${KEY_BASE}&language=ru-RU`);
 }
 
 // Запрос обзоров для страницы кинофильма.
 export function fetchMoviePageById(movieId) {
   return fetchWithErrorHandling(`
-${BASE_URL}/3/movie/${movieId}/reviews?api_key=${KEY_BASE}&language=en-US&page=1`);
+${BASE_URL}/3/movie/${movieId}/reviews?api_key=${KEY_BASE}&language=ru-RU&page=1`);
+}
+
+//Запрос видео
+
+export function fetchMovieVideoById(movie_id) {
+  return fetchWithErrorHandling(
+    `${BASE_URL}/3/movie/${movie_id}/videos?api_key=${KEY_BASE}&language=ru-RU`,
+  );
+}
+
+export function fetchMovieVideoByIdEnglish(movie_id) {
+  return fetchWithErrorHandling(
+    `${BASE_URL}/3/movie/${movie_id}/videos?api_key=${KEY_BASE}&language=en-EN`,
+  );
 }

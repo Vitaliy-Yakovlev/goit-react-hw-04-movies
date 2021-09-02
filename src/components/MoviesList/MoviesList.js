@@ -10,7 +10,7 @@ function MoviesList({ movies }) {
 
   return (
     <ul className={s.title}>
-      {movies['results'].map(movie => (
+      {movies?.map(movie => (
         <li key={movie.id} className={s.list}>
           <div className={s.container}>
             <Link
@@ -34,7 +34,7 @@ function MoviesList({ movies }) {
             </Link>
             <div className={s.containerInfo}>
               <p className={s.text}>{movie.title || movie.name}</p>
-              <p className={s.text}>{}</p>
+
               <span className={s.average}>{movie.vote_average}</span>
             </div>
           </div>
@@ -45,7 +45,7 @@ function MoviesList({ movies }) {
 }
 
 MoviesList.propTypes = {
-  movies: PropTypes.object.isRequired,
+  movies: PropTypes.array,
 };
 
 export default MoviesList;

@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import s from './MovieCast.module.css';
 
 function MovieCast({ actor, defaultImg, IMG_URL }) {
-  console.log(actor);
   if (actor.cast.length === 0) {
     return <p className={s.error}>No cast information.</p>;
   }

@@ -2,13 +2,12 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { useParams, useRouteMatch, Route, Switch } from 'react-router-dom';
 import * as movieShelfAPI from '../services/movieshelf-api';
 import PageHeading from '../components/PageHeading';
-import defaultImg from '../images/default.png';
 import MovieListId from '../components/MovieListId';
 import NavLinkListId from '../components/NavLinkListId';
 import Spinner from '../components/Loader';
 
-const MovieCast = lazy(() =>
-  import('../components/MovieCast' /*webpackChunkName: "movies-cast" */),
+const Animations = lazy(() =>
+  import('../components/Animations' /*webpackChunkName: "animations" */),
 );
 const MovieReviews = lazy(() =>
   import('../components/MovieReviews' /*webpackChunkName: "movies-review" */),
@@ -23,6 +22,8 @@ export default function MoviesPage() {
   const [actor, setActor] = useState(null);
   const [page, setPage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [videoId, setVideoId] = useState(null);
+  const [VideoIdEnglish, setVideoIdEnglish] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -41,25 +42,32 @@ export default function MoviesPage() {
     movieShelfAPI.fetchMoviePageById(movieId).then(setPage);
   }, [movieId]);
 
+  useEffect(() => {
+    movieShelfAPI.fetchMovieVideoByIdEnglish(movieId).then(setVideoIdEnglish);
+
+    movieShelfAPI.fetchMovieVideoById(movieId).then(setVideoId);
+  }, [movieId]);
+
   return (
     <>
       {isLoading && <Spinner />}
       <PageHeading text={`Movie`} />
 
-      {movie && <MovieListId movie={movie} IMG_URL={IMG_URL} />}
+      {movie && (
+        <MovieListId
+          movie={movie}
+          IMG_URL={IMG_URL}
+          video={videoId}
+          VideoIdEnglish={VideoIdEnglish}
+        />
+      )}
 
       <NavLinkListId routeMatch={url} />
 
       <Suspense fallback={<Spinner />}>
         <Switch>
           <Route path={`${url}/cast`}>
-            {actor && (
-              <MovieCast
-                actor={actor}
-                defaultImg={defaultImg}
-                IMG_URL={IMG_URL}
-              />
-            )}
+            {actor && <Animations actor={actor} />}
           </Route>
 
           <Route path={`${url}/reviews`}>
