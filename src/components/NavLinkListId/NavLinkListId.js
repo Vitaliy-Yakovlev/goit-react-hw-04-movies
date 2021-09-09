@@ -4,14 +4,16 @@ import s from './NavLinkListId.module.css';
 
 function NavLinkListId({ routeMatch }) {
   const location = useLocation();
+
+  setTimeout(() => {
+    window.scrollBy({
+      top: document.documentElement.clientHeight - 100,
+      behavior: 'smooth',
+    });
+  }, 600);
+
   return (
     <div className={s.container}>
-      {setTimeout(() => {
-        window.scrollBy({
-          top: document.documentElement.clientHeight - 50,
-          behavior: 'smooth',
-        });
-      }, 600)}
       <NavLink
         className={s.link}
         activeClassName={s.activeLink}

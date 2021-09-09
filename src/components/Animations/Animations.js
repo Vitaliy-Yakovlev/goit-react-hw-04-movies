@@ -17,12 +17,14 @@ const IMG_URL = 'https://image.tmdb.org/t/p/original';
 export default function Animations({ actor }) {
   const [open, set] = useState(false);
 
-  setTimeout(() => {
-    window.scrollBy({
-      top: document.documentElement.clientHeight - 100,
-      behavior: 'smooth',
-    });
-  }, 600);
+  if (open) {
+    setTimeout(() => {
+      window.scrollBy({
+        top: document.documentElement.clientHeight - 100,
+        behavior: 'smooth',
+      });
+    }, 600);
+  }
 
   const springApi = useSpringRef();
   const { size, ...rest } = useSpring({

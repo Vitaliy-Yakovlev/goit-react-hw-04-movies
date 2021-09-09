@@ -43,17 +43,12 @@ export default function MoviesPage() {
       <UpArrowBtn />
 
       <PageHeading text="Trending today" />
-      {movies && (
-        <>
-          <MoviesList movies={movies} location={location} />
-          <button
-            onClick={onClickBtn}
-            type="button"
-            className="btnLoadMoreSharp"
-          >
-            <IoReloadSharp className="loadMoreSharp" />
-          </button>
-        </>
+      {movies && <MoviesList movies={movies} location={location} />}
+
+      {!isLoading && (
+        <button onClick={onClickBtn} type="button" className="btnLoadMoreSharp">
+          <IoReloadSharp className="loadMoreSharp" />
+        </button>
       )}
     </>
   );
