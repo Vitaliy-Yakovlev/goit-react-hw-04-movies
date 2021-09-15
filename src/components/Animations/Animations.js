@@ -30,10 +30,9 @@ export default function Animations({ actor }) {
   const { size, ...rest } = useSpring({
     ref: springApi,
     config: config.stiff,
-    from: { size: '20%', background: 'rgb(0, 102, 245)' },
+    from: { size: '22%' },
     to: {
-      size: open ? '100%' : '20%',
-      background: open ? 'transparent' : '#21f36e',
+      size: open ? '100%' : '22%',
     },
   });
 
@@ -62,7 +61,7 @@ export default function Animations({ actor }) {
           <MovieCast actor={actor} IMG_URL={IMG_URL} defaultImg={defaultImg} />
         )}
         {!open ? (
-          <span className={styles.openActors}> Actors Push On</span>
+          <span className={styles.closesActors}> Actors Push On</span>
         ) : (
           <span className={styles.openActors}> Actors Push of</span>
         )}

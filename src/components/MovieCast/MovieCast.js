@@ -9,7 +9,7 @@ function MovieCast({ actor, defaultImg, IMG_URL }) {
   return (
     <ul className={s.title}>
       {actor['cast'].map(actor => (
-        <li key={actor.cast_id}>
+        <li key={actor.cast_id} className={s.list}>
           <img
             className={s.images}
             src={

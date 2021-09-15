@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ButtonGoBack from '../ButtonGoBack';
 import moviesDefault from '../../images/moviesDefault.jpg';
 import s from './MovieListId.module.css';
-import ModalOpen from '../ModalOpen/ModalOpen';
+import Modal from '../Modal/VideoModal/VideoModal';
 
 function MovieListId({ movie, IMG_URL, video, VideoIdEnglish }) {
   const genresMovie = movie['genres'].map(genre => genre.name).join(' | ');
@@ -24,7 +24,7 @@ function MovieListId({ movie, IMG_URL, video, VideoIdEnglish }) {
         <div className={s.containerInfo}>
           <h2 className={s.desc}>{movie.title} </h2>
           <p className={s.average}>{movie.vote_average}</p>
-          <ModalOpen video={video} VideoIdEnglish={VideoIdEnglish} />
+          <Modal video={video} VideoIdEnglish={VideoIdEnglish} />
           <p className={s.text}>
             <span className={s.spanText}>Genres :</span>
             {genresMovie}

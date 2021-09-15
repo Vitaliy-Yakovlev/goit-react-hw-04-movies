@@ -10,8 +10,7 @@
 }
 
 .container {
-  grid-gap: 25px;
-  padding: 25px;
+  padding: 5px;
 
   border-radius: 5px;
   cursor: pointer;
@@ -27,11 +26,40 @@
   will-change: transform, opacity;
 }
 
+.closesActors {
+  font-size: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  background-color: #21f36e;
+  height: 35px;
+  width: 232px;
+  border-radius: 5px;
+}
+
+.closesActors:hover,
+.closesActors:focus {
+  transform: scale(1.2);
+}
+
 .openActors {
   font-size: 25px;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   font-weight: 700;
-  color: #fff;
+  color: rgb(255, 255, 255);
+  background-color: red;
+  height: 35px;
+  width: 232px;
   border-radius: 5px;
+}
+
+.openActors:hover,
+.openActors:focus {
+  transform: scale(1.2);
 }
