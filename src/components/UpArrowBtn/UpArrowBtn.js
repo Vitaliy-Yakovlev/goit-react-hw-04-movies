@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { VscChevronUp } from 'react-icons/vsc';
+import throttle from 'lodash.throttle';
 import s from './UpArrowBtn.module.css';
 
 function UpArrowBtn() {
@@ -9,6 +10,9 @@ function UpArrowBtn() {
     window.onscroll = () => {
       setScrollTop(window.pageYOffset);
     };
+
+    throttle(setScrollTop, 500);
+    return setScrollTop;
   }, []);
 
   const scrollFunction = () => {

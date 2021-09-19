@@ -9,16 +9,16 @@ async function fetchWithErrorHandling(url = '', config = {}) {
 }
 
 //Список самых популярных фильмов на сегодня для создания коллекции на главной странице
-export function fetchMovies(CurrentPage) {
+export function fetchMovies(currentPage) {
   return fetchWithErrorHandling(
-    `${BASE_URL}/3/trending/all/week?api_key=${KEY_BASE}&page=${CurrentPage}`,
+    `${BASE_URL}/3/trending/all/week?api_key=${KEY_BASE}&page=${currentPage}`,
   );
 }
 
 //Поиск кинофильма по ключевому слову на странице фильмов.
-export function fetchMovieKeywordById(searchQuery, CurrentPage) {
+export function fetchMovieKeywordById(searchQuery, currentPage) {
   return fetchWithErrorHandling(
-    `${BASE_URL}/3/search/movie?api_key=${KEY_BASE}&language=ru-RU&query=${searchQuery}&page=${CurrentPage}&include_adult=false`,
+    `${BASE_URL}/3/search/movie?api_key=${KEY_BASE}&language=ru-RU&query=${searchQuery}&page=${currentPage}&include_adult=false`,
   );
 }
 

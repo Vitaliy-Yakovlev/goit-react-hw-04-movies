@@ -8,6 +8,8 @@ function ButtonGoBack() {
 
   const onGoBack = () => {
     history.push(location?.state?.from ?? '/');
+
+    console.log(history);
   };
 
   return (

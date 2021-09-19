@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { IoReloadSharp } from 'react-icons/io5';
+import { useLocation, useHistory } from 'react-router-dom';
 import * as movieShelfAPI from '../services/movieshelf-api';
 import PageHeading from '../components/PageHeading';
 import MoviesList from '../components/MoviesList';
@@ -12,7 +12,11 @@ export default function MoviesPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
+  const history = useHistory();
   const location = useLocation();
+
+  // console.log(history);
+  // console.log(location);
 
   useEffect(() => {
     setIsLoading(true);
@@ -43,7 +47,7 @@ export default function MoviesPage() {
       <UpArrowBtn />
 
       <PageHeading text="Trending today" />
-      {movies && <MoviesList movies={movies} location={location} />}
+      {movies && <MoviesList movies={movies} />}
 
       {!isLoading && (
         <button onClick={onClickBtn} type="button" className="btnLoadMoreSharp">

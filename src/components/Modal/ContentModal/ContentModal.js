@@ -1,6 +1,6 @@
 import s from './ContentModal.module.css';
 
-export default function ContentModal({ video, VideoIdEnglish, toggleModal }) {
+export default function ContentModal({ video, VideoIdEnglish }) {
   return (
     <div>
       <div className={s.containerVideos}>
