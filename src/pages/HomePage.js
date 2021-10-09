@@ -19,7 +19,7 @@ export default function MoviesPage() {
       .then(data => {
         setMovies(prev => [...prev, ...data.results]);
 
-        // TODO : Добавляет плавный Scroll в низ при нажатии на Loader
+        // TODO: Добавляет плавный Scroll в низ при нажатии на Loader
         // if (currentPage > 1) {
         //   setTimeout(() => {
         //     window.scrollBy({
@@ -55,7 +55,7 @@ export default function MoviesPage() {
       </InfiniteScroll>
 
       {
-        // TODO : Замена "Infinite Scroll" на кнопку "Loader"
+        // TODO: Замена "Infinite Scroll" на кнопку "Loader"
         /* {!isLoading && (
         <button onClick={onClickBtn} type="button" className="btnLoadMoreSharp">
           <IoReloadSharp className="loadMoreSharp" />
