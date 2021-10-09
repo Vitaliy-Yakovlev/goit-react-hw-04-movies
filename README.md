@@ -10,3 +10,4 @@
 ![React-spring](https://img.shields.io/bundlephobia/min/react-spring?color=grin&label=React-spring)
 ![React-toastify](https://img.shields.io/bundlephobia/min/react-toastify?color=grin&label=React-toastify)
 ![Web-vitals](https://img.shields.io/bundlephobia/min/web-vitals?color=grin&label=Web-vitals)
+![react-infinite-scroll](https://img.shields.io/bundlephobia/min/react-infinite-scroll-component?color=grin&label=react-infinite-scroll)
