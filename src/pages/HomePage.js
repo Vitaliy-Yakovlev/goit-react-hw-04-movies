@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { IoReloadSharp } from 'react-icons/io5';
-import { useLocation, useHistory } from 'react-router-dom';
+// import { IoReloadSharp } from 'react-icons/io5';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import * as movieShelfAPI from '../services/movieshelf-api';
 import PageHeading from '../components/PageHeading';
 import MoviesList from '../components/MoviesList';
@@ -12,12 +12,6 @@ export default function MoviesPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
-  const history = useHistory();
-  const location = useLocation();
-
-  // console.log(history);
-  // console.log(location);
-
   useEffect(() => {
     setIsLoading(true);
     movieShelfAPI
@@ -25,19 +19,25 @@ export default function MoviesPage() {
       .then(data => {
         setMovies(prev => [...prev, ...data.results]);
 
-        if (currentPage > 1) {
-          setTimeout(() => {
-            window.scrollBy({
-              top: document.documentElement.clientHeight - 120,
-              behavior: 'smooth',
-            });
-          }, 600);
-        }
+        // TODO : Добавляет плавный Scroll в низ при нажатии на Loader
+        // if (currentPage > 1) {
+        //   setTimeout(() => {
+        //     window.scrollBy({
+        //       top: document.documentElement.clientHeight - 120,
+        //       behavior: 'smooth',
+        //     });
+        //   }, 600);
+        // }
       })
       .finally(() => setIsLoading(false));
   }, [currentPage]);
 
-  const onClickBtn = () => {
+  // TODO : Замена "Infinite Scroll" на кнопку "Loader"
+  // const onClickBtn = () => {
+  //   setCurrentPage(prevCurrentPage => prevCurrentPage + 1);
+  // };
+
+  const onNextPages = () => {
     setCurrentPage(prevCurrentPage => prevCurrentPage + 1);
   };
 
@@ -45,15 +45,23 @@ export default function MoviesPage() {
     <>
       {isLoading && <Spinner />}
       <UpArrowBtn />
+      <InfiniteScroll
+        dataLength={currentPage}
+        next={() => onNextPages()}
+        hasMore={true}
+      >
+        <PageHeading text="Trending today" />
+        {movies && <MoviesList movies={movies} />}
+      </InfiniteScroll>
 
-      <PageHeading text="Trending today" />
-      {movies && <MoviesList movies={movies} />}
-
-      {!isLoading && (
+      {
+        // TODO : Замена "Infinite Scroll" на кнопку "Loader"
+        /* {!isLoading && (
         <button onClick={onClickBtn} type="button" className="btnLoadMoreSharp">
           <IoReloadSharp className="loadMoreSharp" />
         </button>
-      )}
+      )} */
+      }
     </>
   );
 }

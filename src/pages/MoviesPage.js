@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import * as movieShelfAPI from '../services/movieshelf-api';
 import queryString from 'query-string';
-import { IoReloadSharp } from 'react-icons/io5';
+// import { IoReloadSharp } from 'react-icons/io5';
 import { toast } from 'react-toastify';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import PageHeading from '../components/PageHeading';
 import Form from '../components/Form';
 import MoviesList from '../components/MoviesList';
@@ -63,7 +64,18 @@ export default function MoviesPage() {
     setMovies([]);
   };
 
-  const onClickBtn = () => {
+  // TODO : Замена "Infinite Scroll" на кнопку "Loader"
+  // const onClickBtn = () => {
+  //   if (currentPage === totalPages) {
+  //     toast.warning('Фильмов больше не найдено');
+  //     return;
+  //   }
+
+  //   setCurrentPage(prevCurrentPage => prevCurrentPage + 1);
+  //   setSearchQuery(searchQuery);
+  // };
+
+  const onNextPages = () => {
     if (currentPage === totalPages) {
       toast.warning('Фильмов больше не найдено');
       return;
@@ -79,12 +91,23 @@ export default function MoviesPage() {
 
       <PageHeading text={`Movies`} />
       <Form onSubmit={handleSubmit} />
-      {movies && <MoviesList movies={movies} />}
-      {movies.length > 1 && (
+
+      <InfiniteScroll
+        dataLength={currentPage}
+        next={() => onNextPages()}
+        hasMore={true}
+      >
+        {movies && <MoviesList movies={movies} />}
+      </InfiniteScroll>
+
+      {
+        // TODO : Замена "Infinite Scroll" на кнопку "Loader"
+        /* {movies.length > 1 && (
         <button onClick={onClickBtn} type="button" className="btnLoadMoreSharp">
           <IoReloadSharp className="loadMoreSharp" />
         </button>
-      )}
+      )} */
+      }
       {movies && <UpArrowBtn />}
     </>
   );
