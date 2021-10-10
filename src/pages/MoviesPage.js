@@ -41,14 +41,14 @@ export default function MoviesPage() {
 
         setIsLoading(false);
 
-        if (currentPage > 2) {
-          setTimeout(() => {
-            window.scrollBy({
-              top: document.documentElement.clientHeight - 120,
-              behavior: 'smooth',
-            });
-          }, 600);
-        }
+        // if (currentPage > 2) {
+        //   setTimeout(() => {
+        //     window.scrollBy({
+        //       top: document.documentElement.clientHeight - 120,
+        //       behavior: 'smooth',
+        //     });
+        //   }, 600);
+        // }
       })
       .finally(() => setIsLoading(false));
   }, [query, currentPage, searchQuery]);
