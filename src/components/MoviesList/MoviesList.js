@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import moviesDefault from '../../images/moviesDefault.jpg';
 import s from './MoviesList.module.css';
 
@@ -20,7 +21,7 @@ function MoviesList({ movies }) {
                 state: { from: location },
               }}
             >
-              <img
+              <LazyLoadImage
                 className={s.images}
                 src={
                   movie.poster_path
@@ -30,6 +31,7 @@ function MoviesList({ movies }) {
                 alt={movie.title || movie.name}
                 width={360}
                 height={400}
+                effect="blur"
               />
             </Link>
             <div className={s.containerInfo}>
