@@ -32,6 +32,7 @@ function MoviesList({ movies }) {
                 width={360}
                 height={400}
                 effect="blur"
+                placeholder={false}
               />
             </Link>
             <div className={s.containerInfo}>
