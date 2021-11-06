@@ -4,7 +4,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import moviesDefault from '../../images/moviesDefault.jpg';
 import s from './MoviesList.module.css';
 
-const IMG_URL = 'https://image.tmdb.org/t/p/original';
+const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 
 function MoviesList({ movies }) {
   const location = useLocation();
