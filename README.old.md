@@ -7,7 +7,7 @@
 1. Создаем репозиторий на [Github](https://github.com/)
 2. Создаем React приложение - ```console npx create-react-app```
 3. Eсли еще не установлены, ставим - [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-4. Установить [валидатор пропсов](https://www.npmjs.com/package/prop-types)  - ```console npm i prop-types```
+4. Установить [валидация пропсов](https://www.npmjs.com/package/prop-types)  - ```console npm i prop-types```
 5. Установить Prettier <a href="https://prettier.io/">
 <img src = "https://prettier.io/icon.png" alt ="Prettier" width =15px/>
 </a> - ```console npm install --save-dev prettier eslint```
@@ -71,7 +71,7 @@ npm run deploy
   
 ---
 
-## Виде инструкция
+## Видео инструкция
 
 1. [Netlify CLI и npm-скрипты](https://drive.google.com/file/d/1sUdq5187Uf5uo5EfqPrEEE52ssPj11Xh/view)
-2. [Создание проекта и деплой](https://drive.google.com/file/d/1RXumPAthh_qJSp6hr6ImwF5ljRvWE47e/view)
+2. [Создания проекта и деплой](https://drive.google.com/file/d/1RXumPAthh_qJSp6hr6ImwF5ljRvWE47e/view)
