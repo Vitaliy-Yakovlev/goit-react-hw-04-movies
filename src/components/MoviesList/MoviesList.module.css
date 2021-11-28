@@ -11,6 +11,8 @@
 
 .list {
   border-radius: 2px;
+  border-radius: 5px;
+  position: relative;
 
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -22,12 +24,6 @@
 
 .list:hover {
   transform: scale(1.05);
-}
-
-.container {
-  display: flex;
-  border-radius: 5px;
-  position: relative;
 }
 
 .link {
@@ -63,14 +59,15 @@
 
 .average {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 4px;
+  right: 4px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 35px;
   height: 35px;
   border-radius: 50%;
+  color: #fff;
 
-  background-color: rgba(13, 255, 0, 0.707);
+  background-color: rgba(0, 200, 255, 0.694);
 }

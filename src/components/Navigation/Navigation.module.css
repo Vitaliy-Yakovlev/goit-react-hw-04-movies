@@ -5,14 +5,16 @@
   font-weight: 700;
   color: #fbfbfb;
   font-size: 18px;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .activeLink {
   composes: link;
-  color: #21f36e;
+  color: rgba(0, 200, 255, 0.694);
 }
 
 .link:hover,
 link:focus {
-  color: #21f36e;
+  color: rgba(0, 200, 255, 0.694);
 }

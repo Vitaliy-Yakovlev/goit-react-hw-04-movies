@@ -13,32 +13,30 @@ function MoviesList({ movies }) {
     <ul className={s.title}>
       {movies?.map(movie => (
         <li key={movie.id} className={s.list}>
-          <div className={s.container}>
-            <Link
-              className={s.link}
-              to={{
-                pathname: `/movies/${movie.id}`,
-                state: { from: location },
-              }}
-            >
-              <LazyLoadImage
-                className={s.images}
-                src={
-                  movie.poster_path
-                    ? `${IMG_URL}${movie.poster_path}`
-                    : moviesDefault
-                }
-                alt={movie.title || movie.name}
-                effect="blur"
-                placeholder={false}
-              />
-              <div className={s.containerInfo}>
-                <p className={s.text}>{movie.title || movie.name}</p>
+          <Link
+            className={s.link}
+            to={{
+              pathname: `/movies/${movie.id}`,
+              state: { from: location },
+            }}
+          >
+            <LazyLoadImage
+              className={s.images}
+              src={
+                movie.poster_path
+                  ? `${IMG_URL}${movie.poster_path}`
+                  : moviesDefault
+              }
+              alt={movie.title || movie.name}
+              effect="blur"
+              placeholder={false}
+            />
+            <div className={s.containerInfo}>
+              <p className={s.text}>{movie.title || movie.name}</p>
 
-                <span className={s.average}>{movie.vote_average}</span>
-              </div>
-            </Link>
-          </div>
+              <span className={s.average}>{movie.vote_average}</span>
+            </div>
+          </Link>
         </li>
       ))}
     </ul>

@@ -44,7 +44,6 @@ export default function MoviesPage() {
   return (
     <>
       {isLoading && <Spinner />}
-      <UpArrowBtn />
       <InfiniteScroll
         dataLength={currentPage}
         next={() => onNextPages()}
@@ -54,6 +53,7 @@ export default function MoviesPage() {
         {movies && <MoviesList movies={movies} />}
       </InfiniteScroll>
 
+      <UpArrowBtn />
       {
         // TODO: Замена "Infinite Scroll" на кнопку "Loader"
         /* {!isLoading && (

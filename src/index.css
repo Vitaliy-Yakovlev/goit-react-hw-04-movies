@@ -26,7 +26,7 @@ body {
 
 img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
@@ -105,4 +105,8 @@ img {
 
 .lazy-load-image-background {
   display: block !important;
+}
+
+.infinite-scroll-component {
+  overflow: visible !important;
 }

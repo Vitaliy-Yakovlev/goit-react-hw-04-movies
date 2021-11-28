@@ -36,7 +36,7 @@ function UpArrowBtn() {
 
   return (
     <button onClick={scrollFunction} title="Go to top" className={className()}>
-      <VscChevronUp />
+      <VscChevronUp style={{ fill: '#fff' }} />
     </button>
   );
 }

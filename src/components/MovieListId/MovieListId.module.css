@@ -1,11 +1,23 @@
 .container {
-  display: flex;
   border-radius: 5px;
   position: relative;
 }
 
+@media screen and (min-width: 768px) {
+  .container {
+    display: flex;
+  }
+}
+
 .images {
+  min-width: 290px;
   border-radius: 5px;
+}
+
+@media screen and (min-width: 1024px) {
+  .images {
+    max-width: 400px;
+  }
 }
 
 .title {
@@ -36,9 +48,19 @@
   margin-left: 25px;
   padding: 15px;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 
   background-color: rgba(2, 2, 2, 0.469);
   border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .containerInfo {
+    margin-top: 0;
+    margin-left: 20px;
+  }
 }
 
 .text {
@@ -73,7 +95,9 @@
 .average {
   position: absolute;
   top: -10px;
-  left: 358px;
+  /* left: 358px; */
+
+  right: 5px;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -82,7 +106,19 @@
   height: 35px;
   border-radius: 50%;
 
-  background-color: rgba(13, 255, 0, 0.707);
+  background-color: rgba(0, 200, 255, 0.694);
+}
+
+@media screen and (min-width: 768px) {
+  .average {
+    left: 248px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .average {
+    left: 355px;
+  }
 }
 
 /* 

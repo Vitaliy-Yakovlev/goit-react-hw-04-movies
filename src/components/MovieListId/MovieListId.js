@@ -10,7 +10,6 @@ function MovieListId({ movie, IMG_URL, video, VideoIdEnglish }) {
   return (
     <>
       <ButtonGoBack />
-
       <div className={s.container}>
         <img
           className={s.images}
@@ -18,7 +17,6 @@ function MovieListId({ movie, IMG_URL, video, VideoIdEnglish }) {
             movie.poster_path ? `${IMG_URL}${movie.poster_path}` : moviesDefault
           }
           alt={movie.title}
-          width={400}
         />
 
         <div className={s.containerInfo}>

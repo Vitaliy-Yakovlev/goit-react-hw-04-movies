@@ -22,10 +22,10 @@
 
 .activeLink {
   composes: link;
-  color: #21f36e;
+  color: rgba(0, 200, 255, 0.694);
 }
 
 .link:hover,
 link:focus {
-  color: #21f36e;
+  color: rgba(0, 200, 255, 0.694);
 }

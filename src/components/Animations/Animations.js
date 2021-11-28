@@ -30,9 +30,9 @@ export default function Animations({ actor }) {
   const { size, ...rest } = useSpring({
     ref: springApi,
     config: config.stiff,
-    from: { size: '22%' },
+    from: { size: '100%' },
     to: {
-      size: open ? '100%' : '22%',
+      size: open ? '100%' : '100%',
     },
   });
 
