@@ -16,9 +16,6 @@
   border-top-right-radius: 5px;
 
   transition: -webkit-transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    -webkit-transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -28,20 +25,22 @@
 }
 
 .container {
+  display: flex;
   border-radius: 5px;
   position: relative;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.lazy-load-image-background {
+  display: block !important;
 }
 
 .images {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-
-  width: 273px;
-
-  transition: -webkit-transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    -webkit-transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }

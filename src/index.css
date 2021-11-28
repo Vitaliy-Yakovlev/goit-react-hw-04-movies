@@ -102,3 +102,7 @@ img {
 .flex.center {
   justify-content: center;
 }
+
+.lazy-load-image-background {
+  display: block !important;
+}

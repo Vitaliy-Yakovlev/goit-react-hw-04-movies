@@ -29,17 +29,15 @@ function MoviesList({ movies }) {
                     : moviesDefault
                 }
                 alt={movie.title || movie.name}
-                width={360}
-                height={400}
                 effect="blur"
                 placeholder={false}
               />
-            </Link>
-            <div className={s.containerInfo}>
-              <p className={s.text}>{movie.title || movie.name}</p>
+              <div className={s.containerInfo}>
+                <p className={s.text}>{movie.title || movie.name}</p>
 
-              <span className={s.average}>{movie.vote_average}</span>
-            </div>
+                <span className={s.average}>{movie.vote_average}</span>
+              </div>
+            </Link>
           </div>
         </li>
       ))}
