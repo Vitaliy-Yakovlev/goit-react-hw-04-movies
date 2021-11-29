@@ -13,6 +13,7 @@ export default function ContentModal({ video, VideoIdEnglish }) {
         ></iframe>
       ) : (
         <iframe
+          className={s.iframe}
           title="Video"
           src={`https://www.youtube.com/embed/${VideoIdEnglish?.results[0]?.key}`}
           // width="800"
