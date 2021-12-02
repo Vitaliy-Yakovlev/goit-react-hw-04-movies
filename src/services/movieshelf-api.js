@@ -11,7 +11,7 @@ async function fetchWithErrorHandling(url = '', config = {}) {
 // * Список самых популярных фильмов на сегодня для создания коллекции на главной странице
 export async function fetchMovies(currentPage) {
   return await fetchWithErrorHandling(
-    `${BASE_URL}/3/trending/all/day?api_key=${KEY_BASE}&page=${currentPage}`,
+    `${BASE_URL}/3/trending/all/week?api_key=${KEY_BASE}&page=${currentPage}`,
   );
 }
 

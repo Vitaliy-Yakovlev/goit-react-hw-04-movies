@@ -6,30 +6,51 @@ import PageHeading from '../components/PageHeading';
 import MoviesList from '../components/MoviesList';
 import UpArrowBtn from '../components/UpArrowBtn';
 import Spinner from '../components/Loader';
+import useSessionStorage from '../Hook/useSessionStorage';
 
 export default function MoviesPage() {
-  const [movies, setMovies] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [movies, setMovies] = useState(
+  //   () => JSON.parse(window.sessionStorage.getItem('movies')) ?? [],
+  // );
+  const [currentPage, setCurrentPage] = useState(
+    () => JSON.parse(window.sessionStorage.getItem('currentPage')) ?? 1,
+  );
+
+  const [movies, setMovies] = useSessionStorage('movies', []);
+  // const [currentPage, setCurrentPage] = useSessionStorage('currentPage', 1);
+
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
-    movieShelfAPI
-      .fetchMovies(currentPage)
-      .then(data => {
-        setMovies(prev => [...prev, ...data.results]);
+    if (
+      currentPage !== JSON.parse(window.sessionStorage.getItem('currentPage'))
+    ) {
+      setIsLoading(true);
+      movieShelfAPI
+        .fetchMovies(currentPage)
+        .then(data => {
+          setMovies(prev => [...prev, ...data.results]);
 
-        // TODO: Добавляет плавный Scroll в низ при нажатии на Loader
-        // if (currentPage > 1) {
-        //   setTimeout(() => {
-        //     window.scrollBy({
-        //       top: document.documentElement.clientHeight - 120,
-        //       behavior: 'smooth',
-        //     });
-        //   }, 600);
-        // }
-      })
-      .finally(() => setIsLoading(false));
+          // TODO: Добавляет плавный Scroll в низ при нажатии на Loader
+          // if (currentPage > 1) {
+          //   setTimeout(() => {
+          //     window.scrollBy({
+          //       top: document.documentElement.clientHeight - 120,
+          //       behavior: 'smooth',
+          //     });
+          //   }, 600);
+          // }
+        })
+        .finally(() => setIsLoading(false));
+    }
+  }, [currentPage, movies, setMovies]);
+
+  // useEffect(() => {
+  //   window.sessionStorage.setItem('movies', JSON.stringify(movies));
+  // }, [movies]);
+
+  useEffect(() => {
+    window.sessionStorage.setItem('currentPage', JSON.stringify(currentPage));
   }, [currentPage]);
 
   // TODO : Замена "Infinite Scroll" на кнопку "Loader"
@@ -37,9 +58,23 @@ export default function MoviesPage() {
   //   setCurrentPage(prevCurrentPage => prevCurrentPage + 1);
   // };
 
-  const onNextPages = () => {
+  function onNextPages() {
     setCurrentPage(prevCurrentPage => prevCurrentPage + 1);
-  };
+  }
+
+  // movies.map(element => {
+  //   if (element.id === 335983) {
+  //     setTimeout(() => {
+  //       const element = document.getElementById(335983);
+
+  //       if (element) {
+  //         return element.scrollIntoView();
+  //       }
+  //     }, 500);
+  //   }
+
+  //   return element;
+  // });
 
   return (
     <>
@@ -47,6 +82,7 @@ export default function MoviesPage() {
       <InfiniteScroll
         dataLength={currentPage}
         next={() => onNextPages()}
+        scrollThreshold="0px"
         hasMore={true}
       >
         <PageHeading text="Trending today" />

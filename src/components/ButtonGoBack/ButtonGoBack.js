@@ -8,6 +8,14 @@ function ButtonGoBack() {
 
   const onGoBack = () => {
     history.push(location?.state?.from ?? '/');
+
+    setTimeout(() => {
+      const element = document.getElementById(location.pathname);
+
+      if (element) {
+        return element.scrollIntoView();
+      }
+    }, 0);
   };
 
   return (
