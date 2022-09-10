@@ -36,7 +36,9 @@ function MoviesList({ movies }) {
               <div className={s.containerInfo}>
                 <p className={s.text}>{movie.title || movie.name}</p>
 
-                <span className={s.average}>{movie.vote_average}</span>
+                <span className={s.average}>
+                  {movie.vote_average.toFixed(1)}
+                </span>
               </div>
             </Link>
           </li>
