@@ -21,7 +21,7 @@ function MovieListId({ movie, IMG_URL, video, VideoIdEnglish }) {
 
         <div className={s.containerInfo}>
           <h2 className={s.desc}>{movie.title} </h2>
-          <p className={s.average}>{movie.vote_average}</p>
+          <p className={s.average}>{movie.vote_average.toFixed(1)}</p>
           <Modal video={video} VideoIdEnglish={VideoIdEnglish} />
           <p className={s.text}>
             <span className={s.spanText}>Genres :</span>
