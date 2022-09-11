@@ -1,6 +1,6 @@
 .container {
   border-radius: 5px;
-  position: relative;
+  /* position: relative; */
 }
 
 @media screen and (min-width: 768px) {
@@ -9,8 +9,13 @@
   }
 }
 
+.containerImg {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+}
+
 .images {
-  min-width: 290px;
   border-radius: 5px;
 }
 
@@ -97,7 +102,7 @@
   top: -10px;
   /* left: 358px; */
 
-  right: 5px;
+  right: 10px;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -107,18 +112,6 @@
   border-radius: 50%;
 
   background-color: rgba(0, 200, 255, 0.694);
-}
-
-@media screen and (min-width: 768px) {
-  .average {
-    left: 248px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .average {
-    left: 355px;
-  }
 }
 
 /* 
