@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { IoLogoYoutube } from 'react-icons/io';
 import { AiOutlineClose } from 'react-icons/ai';
-import Modal from '../Modal';
-import ContentModal from '../ContentModal/ContentModal';
+import Modal from '../Modal.jsx';
+import ContentModal from '../ContentModal/ContentModal.jsx';
 import s from '../Modal.module.css';
 
 export default function VideoModal({ video, VideoIdEnglish }) {

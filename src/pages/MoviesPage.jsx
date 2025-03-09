@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import * as movieShelfAPI from '../services/movieshelf-api';
+import * as movieShelfAPI from '../services/movieshelf-api.js';
 import queryString from 'query-string';
 // import { IoReloadSharp } from 'react-icons/io5';
 import { toast } from 'react-toastify';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import PageHeading from '../components/PageHeading';
-import Form from '../components/Form';
-import MoviesList from '../components/MoviesList';
-import Spinner from '../components/Loader';
-import UpArrowBtn from '../components/UpArrowBtn';
+import PageHeading from '../components/PageHeading/PageHeading.jsx';
+import Form from '../components/Form/Form.jsx';
+import MoviesList from '../components/MoviesList/MoviesList.jsx';
+import Spinner from '../components/Loader/Loader';
+import UpArrowBtn from '../components/UpArrowBtn/UpArrowBtn.jsx';
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
@@ -24,6 +24,7 @@ export default function MoviesPage() {
     setIsLoading(true);
 
     if (!query) {
+      setIsLoading(false);
       return;
     }
 
@@ -89,14 +90,10 @@ export default function MoviesPage() {
     <>
       {isLoading && <Spinner />}
 
-      <PageHeading text={`Movies`} />
+      <PageHeading text={movies.length === 0 ? 'Movies not found' : 'Movies'} />
       <Form onSubmit={handleSubmit} />
 
-      <InfiniteScroll
-        dataLength={currentPage}
-        next={() => onNextPages()}
-        hasMore={true}
-      >
+      <InfiniteScroll dataLength={currentPage} next={() => onNextPages()} hasMore={true}>
         {movies && <MoviesList movies={movies} />}
       </InfiniteScroll>
 

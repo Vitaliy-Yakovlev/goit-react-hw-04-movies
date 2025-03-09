@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import ButtonGoBack from '../ButtonGoBack';
+import ButtonGoBack from '../ButtonGoBack/ButtonGoBack.jsx';
 import moviesDefault from '../../images/moviesDefault.jpg';
 import s from './MovieListId.module.css';
-import Modal from '../Modal/VideoModal/VideoModal';
+import Modal from '../Modal/VideoModal/VideoModal.jsx';
 
 function MovieListId({ movie, IMG_URL, video, VideoIdEnglish }) {
   const genresMovie = movie['genres'].map(genre => genre.name).join(' | ');

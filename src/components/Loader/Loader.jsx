@@ -1,11 +1,12 @@
-import Loader from 'react-loader-spinner';
+import ClipLoader from 'react-spinners/ClipLoader';
 import s from './Loader.module.css';
 
 const Spinner = () => (
-  <Loader
-    type="Puff"
+  <ClipLoader
     color="rgba(0, 200, 255, 0.694)"
-    timeout={1000}
+    aria-label="Loading Spinner"
+    data-testid="loader"
+    size={100}
     className={s.spinnerStyle}
   />
 );

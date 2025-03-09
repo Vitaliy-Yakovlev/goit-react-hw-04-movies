@@ -18,7 +18,7 @@ function NavLinkListId({ routeMatch }) {
         className={s.link}
         activeClassName={s.activeLink}
         to={{
-          pathname: `${routeMatch}/cast`,
+          pathname: location.pathname.includes('/cast') ? `${routeMatch}` : `${routeMatch}/cast`,
           state: {
             from: location.state ? location.state.from : '/',
           },
